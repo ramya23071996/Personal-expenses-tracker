@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: expense-tracker
+    runtime: python
+    buildCommand: "./venv/bin/pip install -r requirements.txt"
+    startCommand: "gunicorn Expenses_tracker.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: Expenses_tracker.settings
+      - key: PYTHON_VERSION
+        value: 3.13.3
